@@ -1,0 +1,35 @@
+{
+    "type": "Microsoft.Authorization/policyDefinitions",
+    "name": "deny-restrict-resource-without-tag", 
+    "properties": {
+        "mode": "all",
+        "displayName": "Restrict creation of resource without Tag",
+        "description": "This policy audits whether any resource created without Tag .",
+        "parameters": {
+            "tagName": {
+              "type": "String",
+              "metadata": {
+                "displayName": "Tag Name",
+                "description": "Name of the tag, such as 'environment'"
+                }
+            }
+        },
+        "policyRule": {
+            "if": {
+                "allof": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.Resources"
+                    },
+                    {
+                        "field": "tags",
+                        "exists": "false"
+                    }
+                ]
+            },
+            "then": {
+                "effect": "deny"
+            }
+        }
+    }
+}
