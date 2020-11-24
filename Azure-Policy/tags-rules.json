@@ -1,17 +1,9 @@
 {
     "if": {
-        "allof": [
-            {
-                "field": "type",
-                "equals": "Microsoft.Resources/subscriptions/resourceGroups"
-            },
-            {
-                "field": "tags",
-                "exists": "false"
-            }
-        ]
-    },
-    "then": {
+        "field": "[concat('tags[', parameters('tagName'), ']')]",
+        "exists": "false"
+      },
+      "then": {
         "effect": "deny"
-    }
+      }
 }

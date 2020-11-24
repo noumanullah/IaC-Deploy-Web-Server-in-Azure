@@ -1,0 +1,698 @@
+{
+    "format_version": "0.1",
+    "terraform_version": "0.13.4",
+    "values": {
+        "root_module": {
+            "resources": [
+                {
+                    "address": "azurerm_availability_set.main",
+                    "mode": "managed",
+                    "type": "azurerm_availability_set",
+                    "name": "main",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 0,
+                    "values": {
+                        "id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Compute/availabilitySets/noumanudpr-availabilityset",
+                        "location": "westus2",
+                        "managed": true,
+                        "name": "noumanudpr-availabilityset",
+                        "platform_fault_domain_count": 3,
+                        "platform_update_domain_count": 5,
+                        "proximity_placement_group_id": null,
+                        "resource_group_name": "noumanudpr-rg",
+                        "tags": {
+                            "tagenv": "noumanudpr-Project1"
+                        },
+                        "timeouts": null
+                    },
+                    "depends_on": [
+                        "azurerm_resource_group.main"
+                    ]
+                },
+                {
+                    "address": "azurerm_lb.main",
+                    "mode": "managed",
+                    "type": "azurerm_lb",
+                    "name": "main",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 0,
+                    "values": {
+                        "frontend_ip_configuration": [
+                            {
+                                "id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Network/loadBalancers/noumanudpr-loadbalancer/frontendIPConfigurations/noumanudpr-ft_PublicIPAddress",
+                                "inbound_nat_rules": [],
+                                "load_balancer_rules": [],
+                                "name": "noumanudpr-ft_PublicIPAddress",
+                                "outbound_rules": [],
+                                "private_ip_address": "",
+                                "private_ip_address_allocation": "Dynamic",
+                                "private_ip_address_version": "IPv4",
+                                "public_ip_address_id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Network/publicIPAddresses/noumanudpr-publicip",
+                                "public_ip_prefix_id": "",
+                                "subnet_id": "",
+                                "zones": null
+                            }
+                        ],
+                        "id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Network/loadBalancers/noumanudpr-loadbalancer",
+                        "location": "westus2",
+                        "name": "noumanudpr-loadbalancer",
+                        "private_ip_address": "",
+                        "private_ip_addresses": [],
+                        "resource_group_name": "noumanudpr-rg",
+                        "sku": "Basic",
+                        "tags": {
+                            "tagenv": "noumanudpr-Project1"
+                        },
+                        "timeouts": null
+                    },
+                    "depends_on": [
+                        "azurerm_public_ip.main",
+                        "azurerm_resource_group.main"
+                    ]
+                },
+                {
+                    "address": "azurerm_lb_backend_address_pool.main",
+                    "mode": "managed",
+                    "type": "azurerm_lb_backend_address_pool",
+                    "name": "main",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 0,
+                    "values": {
+                        "backend_ip_configurations": [],
+                        "id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Network/loadBalancers/noumanudpr-loadbalancer/backendAddressPools/noumanudpr-backEndAddressPool",
+                        "load_balancing_rules": [],
+                        "loadbalancer_id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Network/loadBalancers/noumanudpr-loadbalancer",
+                        "name": "noumanudpr-backEndAddressPool",
+                        "resource_group_name": "noumanudpr-rg",
+                        "timeouts": null
+                    },
+                    "depends_on": [
+                        "azurerm_lb.main",
+                        "azurerm_public_ip.main",
+                        "azurerm_resource_group.main"
+                    ]
+                },
+                {
+                    "address": "azurerm_linux_virtual_machine.main[0]",
+                    "mode": "managed",
+                    "type": "azurerm_linux_virtual_machine",
+                    "name": "main",
+                    "index": 0,
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 0,
+                    "values": {
+                        "additional_capabilities": [],
+                        "admin_password": "Giga78$$",
+                        "admin_ssh_key": [],
+                        "admin_username": "nouman",
+                        "allow_extension_operations": true,
+                        "availability_set_id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Compute/availabilitySets/NOUMANUDPR-AVAILABILITYSET",
+                        "boot_diagnostics": [],
+                        "computer_name": "noumanudprvm0",
+                        "custom_data": null,
+                        "dedicated_host_id": "",
+                        "disable_password_authentication": false,
+                        "encryption_at_host_enabled": false,
+                        "eviction_policy": "",
+                        "extensions_time_budget": "PT1H30M",
+                        "id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Compute/virtualMachines/noumanudpr-vm-0",
+                        "identity": [],
+                        "location": "westus2",
+                        "max_bid_price": -1,
+                        "name": "noumanudpr-vm-0",
+                        "network_interface_ids": [
+                            "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Network/networkInterfaces/noumanudpr-nic-0"
+                        ],
+                        "os_disk": [
+                            {
+                                "caching": "ReadWrite",
+                                "diff_disk_settings": [],
+                                "disk_encryption_set_id": "",
+                                "disk_size_gb": 30,
+                                "name": "noumanudpr-osdisk-0",
+                                "storage_account_type": "Standard_LRS",
+                                "write_accelerator_enabled": false
+                            }
+                        ],
+                        "plan": [],
+                        "priority": "Regular",
+                        "private_ip_address": "10.10.10.5",
+                        "private_ip_addresses": [
+                            "10.10.10.5"
+                        ],
+                        "provision_vm_agent": true,
+                        "proximity_placement_group_id": "",
+                        "public_ip_address": "",
+                        "public_ip_addresses": [],
+                        "resource_group_name": "noumanudpr-rg",
+                        "secret": [],
+                        "size": "Standard_D2s_v3",
+                        "source_image_id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/Nouman_Udacity_Project1/providers/Microsoft.Compute/images/linuxPackerImage",
+                        "source_image_reference": [],
+                        "tags": {
+                            "tagenv": "noumanudpr-Project1"
+                        },
+                        "timeouts": null,
+                        "virtual_machine_id": "dfb68b90-9bcf-4d79-a352-cc9f6b0dbd4d",
+                        "virtual_machine_scale_set_id": "",
+                        "zone": ""
+                    },
+                    "depends_on": [
+                        "azurerm_availability_set.main",
+                        "azurerm_network_interface.main",
+                        "azurerm_resource_group.main",
+                        "azurerm_subnet.internal",
+                        "azurerm_virtual_network.main"
+                    ]
+                },
+                {
+                    "address": "azurerm_linux_virtual_machine.main[1]",
+                    "mode": "managed",
+                    "type": "azurerm_linux_virtual_machine",
+                    "name": "main",
+                    "index": 1,
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 0,
+                    "values": {
+                        "additional_capabilities": [],
+                        "admin_password": "Giga78$$",
+                        "admin_ssh_key": [],
+                        "admin_username": "nouman",
+                        "allow_extension_operations": true,
+                        "availability_set_id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Compute/availabilitySets/NOUMANUDPR-AVAILABILITYSET",
+                        "boot_diagnostics": [],
+                        "computer_name": "noumanudprvm1",
+                        "custom_data": null,
+                        "dedicated_host_id": "",
+                        "disable_password_authentication": false,
+                        "encryption_at_host_enabled": false,
+                        "eviction_policy": "",
+                        "extensions_time_budget": "PT1H30M",
+                        "id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Compute/virtualMachines/noumanudpr-vm-1",
+                        "identity": [],
+                        "location": "westus2",
+                        "max_bid_price": -1,
+                        "name": "noumanudpr-vm-1",
+                        "network_interface_ids": [
+                            "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Network/networkInterfaces/noumanudpr-nic-1"
+                        ],
+                        "os_disk": [
+                            {
+                                "caching": "ReadWrite",
+                                "diff_disk_settings": [],
+                                "disk_encryption_set_id": "",
+                                "disk_size_gb": 30,
+                                "name": "noumanudpr-osdisk-1",
+                                "storage_account_type": "Standard_LRS",
+                                "write_accelerator_enabled": false
+                            }
+                        ],
+                        "plan": [],
+                        "priority": "Regular",
+                        "private_ip_address": "10.10.10.4",
+                        "private_ip_addresses": [
+                            "10.10.10.4"
+                        ],
+                        "provision_vm_agent": true,
+                        "proximity_placement_group_id": "",
+                        "public_ip_address": "",
+                        "public_ip_addresses": [],
+                        "resource_group_name": "noumanudpr-rg",
+                        "secret": [],
+                        "size": "Standard_D2s_v3",
+                        "source_image_id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/Nouman_Udacity_Project1/providers/Microsoft.Compute/images/linuxPackerImage",
+                        "source_image_reference": [],
+                        "tags": {
+                            "tagenv": "noumanudpr-Project1"
+                        },
+                        "timeouts": null,
+                        "virtual_machine_id": "73ad1eee-06a9-45d4-98b8-f7e6559c482e",
+                        "virtual_machine_scale_set_id": "",
+                        "zone": ""
+                    },
+                    "depends_on": [
+                        "azurerm_availability_set.main",
+                        "azurerm_network_interface.main",
+                        "azurerm_resource_group.main",
+                        "azurerm_subnet.internal",
+                        "azurerm_virtual_network.main"
+                    ]
+                },
+                {
+                    "address": "azurerm_managed_disk.main[0]",
+                    "mode": "managed",
+                    "type": "azurerm_managed_disk",
+                    "name": "main",
+                    "index": 0,
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 0,
+                    "values": {
+                        "create_option": "Empty",
+                        "disk_encryption_set_id": "",
+                        "disk_iops_read_write": 500,
+                        "disk_mbps_read_write": 60,
+                        "disk_size_gb": 10,
+                        "encryption_settings": [],
+                        "id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Compute/disks/noumanudpr_datadisk_existing_0",
+                        "image_reference_id": "",
+                        "location": "westus2",
+                        "name": "noumanudpr_datadisk_existing_0",
+                        "os_type": "",
+                        "resource_group_name": "noumanudpr-rg",
+                        "source_resource_id": "",
+                        "source_uri": "",
+                        "storage_account_id": "",
+                        "storage_account_type": "Standard_LRS",
+                        "tags": {
+                            "tagenv": "noumanudpr-Project1"
+                        },
+                        "timeouts": null,
+                        "zones": null
+                    },
+                    "depends_on": [
+                        "azurerm_resource_group.main"
+                    ]
+                },
+                {
+                    "address": "azurerm_managed_disk.main[1]",
+                    "mode": "managed",
+                    "type": "azurerm_managed_disk",
+                    "name": "main",
+                    "index": 1,
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 0,
+                    "values": {
+                        "create_option": "Empty",
+                        "disk_encryption_set_id": "",
+                        "disk_iops_read_write": 500,
+                        "disk_mbps_read_write": 60,
+                        "disk_size_gb": 10,
+                        "encryption_settings": [],
+                        "id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Compute/disks/noumanudpr_datadisk_existing_1",
+                        "image_reference_id": "",
+                        "location": "westus2",
+                        "name": "noumanudpr_datadisk_existing_1",
+                        "os_type": "",
+                        "resource_group_name": "noumanudpr-rg",
+                        "source_resource_id": "",
+                        "source_uri": "",
+                        "storage_account_id": "",
+                        "storage_account_type": "Standard_LRS",
+                        "tags": {
+                            "tagenv": "noumanudpr-Project1"
+                        },
+                        "timeouts": null,
+                        "zones": null
+                    },
+                    "depends_on": [
+                        "azurerm_resource_group.main"
+                    ]
+                },
+                {
+                    "address": "azurerm_network_interface.main[0]",
+                    "mode": "managed",
+                    "type": "azurerm_network_interface",
+                    "name": "main",
+                    "index": 0,
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 0,
+                    "values": {
+                        "applied_dns_servers": [],
+                        "dns_servers": [],
+                        "enable_accelerated_networking": false,
+                        "enable_ip_forwarding": false,
+                        "id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Network/networkInterfaces/noumanudpr-nic-0",
+                        "internal_dns_name_label": "",
+                        "internal_domain_name_suffix": "fczctjyzmzxubdyyw3l5syg4ma.xx.internal.cloudapp.net",
+                        "ip_configuration": [
+                            {
+                                "name": "noumanudpr-nicinternalipconfig-0",
+                                "primary": true,
+                                "private_ip_address": "10.10.10.5",
+                                "private_ip_address_allocation": "Dynamic",
+                                "private_ip_address_version": "IPv4",
+                                "public_ip_address_id": "",
+                                "subnet_id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Network/virtualNetworks/noumanudpr-network/subnets/noumanudpr-subnet"
+                            }
+                        ],
+                        "location": "westus2",
+                        "mac_address": "",
+                        "name": "noumanudpr-nic-0",
+                        "private_ip_address": "10.10.10.5",
+                        "private_ip_addresses": [
+                            "10.10.10.5"
+                        ],
+                        "resource_group_name": "noumanudpr-rg",
+                        "tags": {
+                            "tagenv": "noumanudpr-Project1"
+                        },
+                        "timeouts": null,
+                        "virtual_machine_id": ""
+                    },
+                    "depends_on": [
+                        "azurerm_resource_group.main",
+                        "azurerm_subnet.internal",
+                        "azurerm_virtual_network.main"
+                    ]
+                },
+                {
+                    "address": "azurerm_network_interface.main[1]",
+                    "mode": "managed",
+                    "type": "azurerm_network_interface",
+                    "name": "main",
+                    "index": 1,
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 0,
+                    "values": {
+                        "applied_dns_servers": [],
+                        "dns_servers": [],
+                        "enable_accelerated_networking": false,
+                        "enable_ip_forwarding": false,
+                        "id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Network/networkInterfaces/noumanudpr-nic-1",
+                        "internal_dns_name_label": "",
+                        "internal_domain_name_suffix": "fczctjyzmzxubdyyw3l5syg4ma.xx.internal.cloudapp.net",
+                        "ip_configuration": [
+                            {
+                                "name": "noumanudpr-nicinternalipconfig-1",
+                                "primary": true,
+                                "private_ip_address": "10.10.10.4",
+                                "private_ip_address_allocation": "Dynamic",
+                                "private_ip_address_version": "IPv4",
+                                "public_ip_address_id": "",
+                                "subnet_id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Network/virtualNetworks/noumanudpr-network/subnets/noumanudpr-subnet"
+                            }
+                        ],
+                        "location": "westus2",
+                        "mac_address": "",
+                        "name": "noumanudpr-nic-1",
+                        "private_ip_address": "10.10.10.4",
+                        "private_ip_addresses": [
+                            "10.10.10.4"
+                        ],
+                        "resource_group_name": "noumanudpr-rg",
+                        "tags": {
+                            "tagenv": "noumanudpr-Project1"
+                        },
+                        "timeouts": null,
+                        "virtual_machine_id": ""
+                    },
+                    "depends_on": [
+                        "azurerm_resource_group.main",
+                        "azurerm_subnet.internal",
+                        "azurerm_virtual_network.main"
+                    ]
+                },
+                {
+                    "address": "azurerm_network_interface_backend_address_pool_association.main[0]",
+                    "mode": "managed",
+                    "type": "azurerm_network_interface_backend_address_pool_association",
+                    "name": "main",
+                    "index": 0,
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 0,
+                    "values": {
+                        "backend_address_pool_id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Network/loadBalancers/noumanudpr-loadbalancer/backendAddressPools/noumanudpr-backEndAddressPool",
+                        "id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Network/networkInterfaces/noumanudpr-nic-0/ipConfigurations/noumanudpr-nicinternalipconfig-0|/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Network/loadBalancers/noumanudpr-loadbalancer/backendAddressPools/noumanudpr-backEndAddressPool",
+                        "ip_configuration_name": "noumanudpr-nicinternalipconfig-0",
+                        "network_interface_id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Network/networkInterfaces/noumanudpr-nic-0",
+                        "timeouts": null
+                    },
+                    "depends_on": [
+                        "azurerm_lb.main",
+                        "azurerm_lb_backend_address_pool.main",
+                        "azurerm_network_interface.main",
+                        "azurerm_public_ip.main",
+                        "azurerm_resource_group.main",
+                        "azurerm_subnet.internal",
+                        "azurerm_virtual_network.main"
+                    ]
+                },
+                {
+                    "address": "azurerm_network_interface_backend_address_pool_association.main[1]",
+                    "mode": "managed",
+                    "type": "azurerm_network_interface_backend_address_pool_association",
+                    "name": "main",
+                    "index": 1,
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 0,
+                    "values": {
+                        "backend_address_pool_id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Network/loadBalancers/noumanudpr-loadbalancer/backendAddressPools/noumanudpr-backEndAddressPool",
+                        "id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Network/networkInterfaces/noumanudpr-nic-1/ipConfigurations/noumanudpr-nicinternalipconfig-1|/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Network/loadBalancers/noumanudpr-loadbalancer/backendAddressPools/noumanudpr-backEndAddressPool",
+                        "ip_configuration_name": "noumanudpr-nicinternalipconfig-1",
+                        "network_interface_id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Network/networkInterfaces/noumanudpr-nic-1",
+                        "timeouts": null
+                    },
+                    "depends_on": [
+                        "azurerm_lb.main",
+                        "azurerm_lb_backend_address_pool.main",
+                        "azurerm_network_interface.main",
+                        "azurerm_public_ip.main",
+                        "azurerm_resource_group.main",
+                        "azurerm_subnet.internal",
+                        "azurerm_virtual_network.main"
+                    ]
+                },
+                {
+                    "address": "azurerm_network_security_group.main",
+                    "mode": "managed",
+                    "type": "azurerm_network_security_group",
+                    "name": "main",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 0,
+                    "values": {
+                        "id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Network/networkSecurityGroups/noumanudpr-nsg",
+                        "location": "westus2",
+                        "name": "noumanudpr-nsg",
+                        "resource_group_name": "noumanudpr-rg",
+                        "security_rule": [
+                            {
+                                "access": "Allow",
+                                "description": "",
+                                "destination_address_prefix": "*",
+                                "destination_address_prefixes": [],
+                                "destination_application_security_group_ids": [],
+                                "destination_port_range": "*",
+                                "destination_port_ranges": [],
+                                "direction": "Inbound",
+                                "name": "noumanudpr-nsgrule",
+                                "priority": 100,
+                                "protocol": "Tcp",
+                                "source_address_prefix": "VirtualNetwork",
+                                "source_address_prefixes": [],
+                                "source_application_security_group_ids": [],
+                                "source_port_range": "*",
+                                "source_port_ranges": []
+                            },
+                            {
+                                "access": "Deny",
+                                "description": "",
+                                "destination_address_prefix": "*",
+                                "destination_address_prefixes": [],
+                                "destination_application_security_group_ids": [],
+                                "destination_port_range": "*",
+                                "destination_port_ranges": [],
+                                "direction": "Inbound",
+                                "name": "noumanudpr-nsgruledisallowinternet",
+                                "priority": 1001,
+                                "protocol": "*",
+                                "source_address_prefix": "*",
+                                "source_address_prefixes": [],
+                                "source_application_security_group_ids": [],
+                                "source_port_range": "*",
+                                "source_port_ranges": []
+                            }
+                        ],
+                        "tags": {
+                            "tagenv": "noumanudpr-Project1"
+                        },
+                        "timeouts": null
+                    },
+                    "depends_on": [
+                        "azurerm_resource_group.main"
+                    ]
+                },
+                {
+                    "address": "azurerm_public_ip.main",
+                    "mode": "managed",
+                    "type": "azurerm_public_ip",
+                    "name": "main",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 0,
+                    "values": {
+                        "allocation_method": "Static",
+                        "domain_name_label": null,
+                        "fqdn": null,
+                        "id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Network/publicIPAddresses/noumanudpr-publicip",
+                        "idle_timeout_in_minutes": 4,
+                        "ip_address": "52.151.27.238",
+                        "ip_version": "IPv4",
+                        "location": "westus2",
+                        "name": "noumanudpr-publicip",
+                        "public_ip_prefix_id": null,
+                        "resource_group_name": "noumanudpr-rg",
+                        "reverse_fqdn": null,
+                        "sku": "Basic",
+                        "tags": {
+                            "tagenv": "noumanudpr-Project1"
+                        },
+                        "timeouts": null,
+                        "zones": null
+                    },
+                    "depends_on": [
+                        "azurerm_resource_group.main"
+                    ]
+                },
+                {
+                    "address": "azurerm_resource_group.main",
+                    "mode": "managed",
+                    "type": "azurerm_resource_group",
+                    "name": "main",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 0,
+                    "values": {
+                        "id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg",
+                        "location": "westus2",
+                        "name": "noumanudpr-rg",
+                        "tags": {
+                            "tagenv": "noumanudpr-Project1"
+                        },
+                        "timeouts": null
+                    }
+                },
+                {
+                    "address": "azurerm_subnet.internal",
+                    "mode": "managed",
+                    "type": "azurerm_subnet",
+                    "name": "internal",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 0,
+                    "values": {
+                        "address_prefix": "10.10.10.0/29",
+                        "address_prefixes": [
+                            "10.10.10.0/29"
+                        ],
+                        "delegation": [],
+                        "enforce_private_link_endpoint_network_policies": false,
+                        "enforce_private_link_service_network_policies": false,
+                        "id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Network/virtualNetworks/noumanudpr-network/subnets/noumanudpr-subnet",
+                        "name": "noumanudpr-subnet",
+                        "resource_group_name": "noumanudpr-rg",
+                        "service_endpoints": null,
+                        "timeouts": null,
+                        "virtual_network_name": "noumanudpr-network"
+                    },
+                    "depends_on": [
+                        "azurerm_resource_group.main",
+                        "azurerm_virtual_network.main"
+                    ]
+                },
+                {
+                    "address": "azurerm_subnet_network_security_group_association.main",
+                    "mode": "managed",
+                    "type": "azurerm_subnet_network_security_group_association",
+                    "name": "main",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 0,
+                    "values": {
+                        "id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Network/virtualNetworks/noumanudpr-network/subnets/noumanudpr-subnet",
+                        "network_security_group_id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Network/networkSecurityGroups/noumanudpr-nsg",
+                        "subnet_id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Network/virtualNetworks/noumanudpr-network/subnets/noumanudpr-subnet",
+                        "timeouts": null
+                    },
+                    "depends_on": [
+                        "azurerm_network_security_group.main",
+                        "azurerm_resource_group.main",
+                        "azurerm_subnet.internal",
+                        "azurerm_virtual_network.main"
+                    ]
+                },
+                {
+                    "address": "azurerm_virtual_machine_data_disk_attachment.main[0]",
+                    "mode": "managed",
+                    "type": "azurerm_virtual_machine_data_disk_attachment",
+                    "name": "main",
+                    "index": 0,
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 0,
+                    "values": {
+                        "caching": "ReadWrite",
+                        "create_option": "Attach",
+                        "id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Compute/virtualMachines/noumanudpr-vm-0/dataDisks/noumanudpr_datadisk_existing_0",
+                        "lun": 10,
+                        "managed_disk_id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Compute/disks/noumanudpr_datadisk_existing_0",
+                        "timeouts": null,
+                        "virtual_machine_id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Compute/virtualMachines/noumanudpr-vm-0",
+                        "write_accelerator_enabled": false
+                    },
+                    "depends_on": [
+                        "azurerm_availability_set.main",
+                        "azurerm_linux_virtual_machine.main",
+                        "azurerm_managed_disk.main",
+                        "azurerm_network_interface.main",
+                        "azurerm_resource_group.main",
+                        "azurerm_subnet.internal",
+                        "azurerm_virtual_network.main"
+                    ]
+                },
+                {
+                    "address": "azurerm_virtual_machine_data_disk_attachment.main[1]",
+                    "mode": "managed",
+                    "type": "azurerm_virtual_machine_data_disk_attachment",
+                    "name": "main",
+                    "index": 1,
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 0,
+                    "values": {
+                        "caching": "ReadWrite",
+                        "create_option": "Attach",
+                        "id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Compute/virtualMachines/noumanudpr-vm-1/dataDisks/noumanudpr_datadisk_existing_1",
+                        "lun": 10,
+                        "managed_disk_id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Compute/disks/noumanudpr_datadisk_existing_1",
+                        "timeouts": null,
+                        "virtual_machine_id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Compute/virtualMachines/noumanudpr-vm-1",
+                        "write_accelerator_enabled": false
+                    },
+                    "depends_on": [
+                        "azurerm_availability_set.main",
+                        "azurerm_linux_virtual_machine.main",
+                        "azurerm_managed_disk.main",
+                        "azurerm_network_interface.main",
+                        "azurerm_resource_group.main",
+                        "azurerm_subnet.internal",
+                        "azurerm_virtual_network.main"
+                    ]
+                },
+                {
+                    "address": "azurerm_virtual_network.main",
+                    "mode": "managed",
+                    "type": "azurerm_virtual_network",
+                    "name": "main",
+                    "provider_name": "registry.terraform.io/hashicorp/azurerm",
+                    "schema_version": 0,
+                    "values": {
+                        "address_space": [
+                            "10.10.10.0/24"
+                        ],
+                        "bgp_community": "",
+                        "ddos_protection_plan": [],
+                        "dns_servers": null,
+                        "guid": "a729b228-6619-406f-8f18-b757f960de60",
+                        "id": "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/noumanudpr-rg/providers/Microsoft.Network/virtualNetworks/noumanudpr-network",
+                        "location": "westus2",
+                        "name": "noumanudpr-network",
+                        "resource_group_name": "noumanudpr-rg",
+                        "subnet": [],
+                        "tags": {
+                            "tagenv": "noumanudpr-Project1"
+                        },
+                        "timeouts": null,
+                        "vm_protection_enabled": false
+                    },
+                    "depends_on": [
+                        "azurerm_resource_group.main"
+                    ]
+                }
+            ]
+        }
+    }
+}
