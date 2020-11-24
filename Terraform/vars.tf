@@ -18,7 +18,7 @@ variable "admin_password" {
 
 variable "vmimage" {
     type = string
-	  default = "/subscriptions/7034c6f8-a777-41a4-b99b-bf1e1a93ff47/resourceGroups/Nouman_Udacity_Project1/providers/Microsoft.Compute/images/linuxPackerImage"
+	  default = "/subscriptions/7034ssf8-ssss-xxxx-xxxx-bf1e1a93ff47/resourceGroups/Nouman_Udacity_Project1/providers/Microsoft.Compute/images/linuxPackerImage"
 }
 
 variable "vmcount" {
